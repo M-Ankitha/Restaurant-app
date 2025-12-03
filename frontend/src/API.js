@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || " https://restaurant-app-z9ol.onrender.com",
+  baseURL: process.env.REACT_APP_API_BASE_URL,
 });
 
 export const setAuthToken = (token) => {
