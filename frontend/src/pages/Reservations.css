@@ -1,0 +1,88 @@
+.reservation-page {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+.hero-small {
+  background: #fff8f1;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero-small h2 {
+  font-size: 34px;
+  color: #ff6f00;
+  margin-bottom: 10px;
+}
+
+.hero-small p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reservation-form-section {
+  padding: 40px 20px;
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+
+.reservation-form {
+  width: 100%;
+  max-width: 600px;
+  background: #fff8f1;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #ff6f00;
+  outline: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #ff6f00;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #ff914d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reservation-form {
+    padding: 20px;
+  }
+}
