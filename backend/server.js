@@ -15,6 +15,12 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 
 dotenv.config();
 
+// ✅ CORS middleware 
+app.use(cors({
+  origin: "https://ankitha-restaurant-app.netlify.app", //  frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
 // __dirname workaround for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
