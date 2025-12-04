@@ -37,6 +37,9 @@ if (!fs.existsSync(path.join(__dirname, "uploads"))) {
   fs.mkdirSync(path.join(__dirname, "uploads"));
 }
 // Routes
+app.get("/", (req, res) => {
+  res.send("API is running successfully ✅");
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
