@@ -4,6 +4,7 @@ import axios from "axios";
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_BASE_URL ||"http://localhost:5000",
 });
+console.log("API base URL:", process.env.REACT_APP_API_BASE_URL);
 
 export const setAuthToken = (token) => {
   if (token) api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
