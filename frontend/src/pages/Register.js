@@ -12,7 +12,7 @@ const Register = ({ onRegister }) => {
   const handleSubmit = async (e)=>{
     e.preventDefault();
     try{
-      const res = await api.post("/auth/register",{name,email,password});
+      const res = await api.post("/api/auth/register",{name,email,password});
       onRegister(res.data.user,res.data.token);
       navigate("/");
     }catch(err){
