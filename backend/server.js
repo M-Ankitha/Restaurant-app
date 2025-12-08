@@ -47,5 +47,9 @@ app.use("/api/paypal", paymentRoutes);
 app.use("/api/users", UserRoutes);
 app.use("/api/upload", uploadRoutes);
 
+app.post("/api/auth/register", (req, res) => {
+  res.status(200).json({ message: "Manual test route reached ✅" });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
