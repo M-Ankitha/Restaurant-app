@@ -9,6 +9,8 @@ const Register = ({ onRegister }) => {
   const [password,setPassword]=useState("");
   const navigate = useNavigate();
 
+  console.log("Register button clicked ✅");
+
   const handleSubmit = async (e)=>{
     e.preventDefault();
     try{
