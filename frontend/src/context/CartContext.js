@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
     }
     const fetchCart = async () => {
       try {
-        const res = await api.get("/cart", {
+        const res = await api.get("/api/cart", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCart(res.data.items || []);
@@ -36,12 +36,12 @@ export const CartProvider = ({ children }) => {
     }
 
     try {
-      await api.post("/cart/add",{ product_id: item.id, quantity: 1 },
+      await api.post("/api/cart/add",{ product_id: item.id, quantity: 1 },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
       // After adding, fetch updated cart
-      const res = await api.get("/cart", {
+      const res = await api.get("/api/cart", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setCart(res.data.items || []);
@@ -62,7 +62,7 @@ const removeFromCart = async (product_id) => {
     return;
   console.log("removeFromCart called with product_id:", product_id);
   try {
-    const response = await api.delete(`/cart/remove/${ product_id }`,
+    const response = await api.delete(`/api/cart/remove/${ product_id }`,
      { headers: { Authorization: `Bearer ${token}` }}
     );
     setCart(response.data.items || [] );
@@ -74,7 +74,7 @@ const removeFromCart = async (product_id) => {
   // Update item quantity
   const updateQuantity = async (product_id, newQty) => {
     try {
-      const res = await api.put( "/cart/update", { product_id, quantity: newQty },
+      const res = await api.put( "/api/cart/update", { product_id, quantity: newQty },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setCart(res.data.items);
@@ -86,7 +86,7 @@ const removeFromCart = async (product_id) => {
   // Remove an item completely
   const removeItemCompletely = async (product_id) => {
     try {
-      const res = await api.delete(`/cart/remove/${product_id}`, {
+      const res = await api.delete(`/api/cart/remove/${product_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(res.data.items);
@@ -98,7 +98,7 @@ const removeFromCart = async (product_id) => {
   // Clear cart
   const clearCart = async () => {
     try {
-      await api.delete("/cart/clear", {
+      await api.delete("/api/cart/clear", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart([]);
