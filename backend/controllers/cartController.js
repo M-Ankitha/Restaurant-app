@@ -119,6 +119,33 @@ export const updateCartItem = async (req, res) => {
     res.status(500).json({ message: "Failed to remove item" });
   }
 };*/
+// ✅ Remove entire item from cart (for "Remove" button)
+   export const removeItemCompletely = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { product_id } = req.params;
+
+    const [cart] = await pool.query("SELECT * FROM carts WHERE user_id = ?", [userId]);
+    if (!cart.length) return res.status(404).json({ message: "Cart not found" });
+
+    const cartId = cart[0].id;
+
+    await pool.query("DELETE FROM cart_items WHERE cart_id = ? AND product_id = ?", [
+      cartId,
+      product_id,
+    ]);
+
+    const [updatedItems] = await pool.query(
+      "SELECT id, product_id, name, price, quantity FROM cart_items WHERE cart_id = ?",
+      [cartId]
+    );
+
+    res.json({ items: updatedItems });
+  } catch (err) {
+    console.error("Remove item completely error:", err);
+    res.status(500).json({ message: "Failed to remove item completely" });
+  }
+};
 // ✅ Remove one unit (not entire row unless quantity = 1)
 export const removeFromCart = async (req, res) => {
   try {
