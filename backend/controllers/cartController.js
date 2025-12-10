@@ -98,27 +98,7 @@ export const updateCartItem = async (req, res) => {
   }
 };
 
-// ✅ Remove item
-/*export const removeFromCart = async (req, res) => {
-  try {
-    const userId = req.user.id;
-    const { product_id } = req.params;
 
-    const [cart] = await pool.query("SELECT * FROM carts WHERE user_id = ?", [userId]);
-    if (cart.length === 0)
-      return res.status(404).json({ message: "Cart not found" });
-
-    await pool.query("DELETE FROM cart_items WHERE cart_id = ? AND product_id = ?", [
-      cart[0].id,
-      product_id,
-    ]);
-
-    res.json({ message: "Item removed" });
-  } catch (err) {
-    console.error("Remove item error:", err);
-    res.status(500).json({ message: "Failed to remove item" });
-  }
-};*/
 // ✅ Remove entire item from cart (for "Remove" button)
    export const removeItemCompletely = async (req, res) => {
   try {
