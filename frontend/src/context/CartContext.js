@@ -36,7 +36,7 @@ export const CartProvider = ({ children }) => {
     }
 
     try {
-      await api.post("/api/cart/add",{ product_id: item.id, quantity: 1 },
+      await api.post("/api/cart/add",{ product_id: item.product_id||item.id, quantity: 1 },
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
