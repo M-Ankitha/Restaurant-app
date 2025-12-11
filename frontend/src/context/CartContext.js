@@ -86,7 +86,7 @@ const removeFromCart = async (product_id) => {
   // Remove an item completely
   const removeItemCompletely = async (product_id) => {
     try {
-      const res = await api.delete(`/api/cart/remove/${product_id}`, {
+      const res = await api.delete(`/api/cart/removeAll/${product_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(res.data.items);
